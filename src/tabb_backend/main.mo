@@ -33,7 +33,7 @@ actor class TABBToken() = this {
   let defaultSubaccount : Subaccount = Blob.fromArrayMut(Array.init(32, 0 : Nat8));
 
   // 👑 Owner of the token contract
-  stable var owner : Principal = Principal.fromText("uq6zd"); // Will be overwritten at init or deployment
+  stable var owner : Principal = Principal.fromText("efjlv-unc6o-qpk3m-uyjyq-p2kdv-ti6e4-mv6kb-odfru-7jz6d-jqmtc-fqe"); // Will be overwritten at init or deployment
 
     // ✅ Whitelist stored as stable array (converted to HashMap on init)
   stable var stable_whitelist : [(Principal, Bool)] = [];

@@ -3,7 +3,11 @@
     "tabb_backend": {
       "main": "src/tabb_backend/main.mo",
       "type": "motoko"
-    }
+    },
+    "tabb_frontend": {
+        "type": "assets",
+        "source": ["src/tabb_frontend"]
+      }
   },
   "defaults": {
     "build": {

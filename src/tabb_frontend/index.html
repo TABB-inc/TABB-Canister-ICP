@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>TABB Token</title>
+</head>
+<body>
+  <h1>TABB Token</h1>
+
+  <div>
+    <p><strong>Name:</strong> <span id="name">Loading...</span></p>
+    <p><strong>Symbol:</strong> <span id="symbol">Loading...</span></p>
+    <p><strong>Total Supply:</strong> <span id="supply">Loading...</span></p>
+  </div>
+
+  <div>
+    <h3>Check Balance</h3>
+    <input id="principal" placeholder="Principal ID" />
+    <button onclick="checkBalance()">Check</button>
+    <p>Balance: <span id="balance">-</span></p>
+  </div>
+
+  <script type="module" src="./bundle.js"></script>
+</body>
+</html>
