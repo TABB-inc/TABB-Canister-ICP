@@ -1,0 +1,49 @@
+type Value = 
+ variant {
+   Blob: blob;
+   Int: int;
+   Nat: nat;
+   Text: text;
+ };
+type TxIndex = nat;
+type Tokens = nat;
+type Timestamp = nat64;
+type Subaccount = blob;
+type Memo = blob;
+type Account = 
+ record {
+   owner: principal;
+   subaccount: opt Subaccount;
+ };
+service : {
+  add_to_whitelist: (principal) -> (variant {
+                                      Err: text;
+                                      Ok: text;
+                                    });
+  icrc1_balance_of: (Account) -> (Tokens) query;
+  icrc1_decimals: () -> (nat8);
+  icrc1_fee: () -> (nat);
+  icrc1_metadata: () -> (vec record {
+                               text;
+                               Value;
+                             }) query;
+  icrc1_name: () -> (text);
+  icrc1_symbol: () -> (text);
+  icrc1_total_supply: () -> (Tokens);
+  icrc1_transfer:
+   (record {
+      amount: Tokens;
+      created_at_time: opt Timestamp;
+      fee: opt Tokens;
+      from_subaccount: opt Subaccount;
+      memo: opt Memo;
+      to: Account;
+    }) -> (variant {
+             Err: text;
+             Ok: TxIndex;
+           });
+  mint: (Account, Tokens) -> (variant {
+                                Err: text;
+                                Ok: TxIndex;
+                              });
+}

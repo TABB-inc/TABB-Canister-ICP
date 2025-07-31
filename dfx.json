@@ -1,20 +1,23 @@
 {
   "canisters": {
-    "tabb_backend": {
-      "main": "src/tabb_backend/main.mo",
-      "type": "motoko"
+    "backend": {
+      "main": "backend/main.mo",
+      "type": "motoko",
+      "args": "--enhanced-orthogonal-persistence"
     },
-    "tabb_frontend": {
-        "type": "assets",
-        "source": ["src/tabb_frontend"]
-      }
-  },
-  "defaults": {
-    "build": {
-      "args": "",
-      "packtool": ""
+    "frontend": {
+      "dependencies": ["backend"],
+      "frontend": {
+        "entrypoint": "frontend/index.html"
+      },
+      "source": ["frontend/dist"],
+      "type": "assets"
     }
   },
   "output_env_file": ".env",
-  "version": 1
+  "defaults": {
+    "build": {
+      "packtool": "mops sources"
+    }
+  }
 }

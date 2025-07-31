@@ -1,0 +1,44 @@
+// Version: 1.0.0
+type Account__79640910 =
+  {owner : Principal; subaccount : ?Subaccount__553513160};
+type Approve__796250703 =
+  {
+    amount : Tokens__774489459;
+    created_at_time : ?Timestamp__903867341;
+    expires_at : ?Timestamp__903867341;
+    fee : ?Tokens__774489459;
+    from : Account__79640910;
+    memo : ?Memo__1000891784;
+    spender : Account__79640910
+  };
+type Memo__1000891784 = Blob;
+type Operation__422994750 =
+  {
+    #Approve : Approve__796250703;
+    #Burn : Transfer__43646289;
+    #Mint : Transfer__43646289;
+    #Transfer : Transfer__43646289
+  };
+type Subaccount__553513160 = Blob;
+type Timestamp__903867341 = Nat64;
+type Tokens__774489459 = Nat;
+type Transaction__929045595 =
+  {
+    fee : Tokens__774489459;
+    operation : Operation__422994750;
+    timestamp : Timestamp__903867341
+  };
+type Transfer__43646289 =
+  {
+    amount : Tokens__774489459;
+    created_at_time : ?Timestamp__903867341;
+    fee : ?Tokens__774489459;
+    from : Account__79640910;
+    memo : ?Memo__1000891784;
+    to : Account__79640910
+  };
+actor {
+  stable var owner : Principal;
+  stable var persistedLog : [Transaction__929045595];
+  stable var stable_whitelist : [(Principal, Bool)]
+};

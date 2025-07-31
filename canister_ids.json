@@ -1,8 +1,8 @@
 {
-  "tabb_backend": {
+  "backend": {
     "ic": "vivpr-oqaaa-aaaak-que3q-cai"
   },
-  "tabb_frontend": {
+  "frontend": {
     "ic": "jop34-haaaa-aaaak-qukxq-cai"
   }
 }
